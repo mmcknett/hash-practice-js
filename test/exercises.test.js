@@ -65,6 +65,14 @@ describe("exercises", function() {
       expect(grouped_anagrams(list)).to.eql([]);
     });
 
+    it("will return as expected for an array with a single entry", function() {
+      // Arrange
+      const list = ["something"];
+
+      // Act-Assert
+      expect(grouped_anagrams(list)).to.eql([["something"]]);
+    });
+
     it("will work for the README example", function() {
       // Arrange
       const list = ["eat", "tea", "tan", "ate", "nat", "bat"];
