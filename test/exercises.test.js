@@ -30,7 +30,7 @@ describe("exercises", function() {
       // Assert
       expect(answer.length).to.be.greaterThan(0);
       answer.forEach((array) => {
-        expect(expected_answer).to.eql(array.sort());
+        expect(array.sort()).to.eql(expected_answer);
       });
     });
 
