@@ -2,10 +2,60 @@ const expect = require('chai').expect;
 const {
   grouped_anagrams,
   top_k_frequent_elements,
-  valid_sudoku
+  valid_sudoku,
+  getLetterCounts,
+  countsEqual
 } = require('../lib/exercises');
 
 describe("exercises", function() {
+  describe.skip("makeKey", function() {
+    it("Makes an empty tring from an empty object", function() {
+      expect(makeKey({})).to.equal('');
+    });
+
+    it("Makes a good key from a count of letters", function () {
+      expect(makeKey({ a: 2, b: 3 })).to.equal("a2b3");
+    });
+
+    it("Order doesn't matter", function () {
+      expect(makeKey({ a: 2, b: 3 })).to.equal(makeKey({ b: 3, a: 2 }));
+    });
+  });
+
+  describe("getLetterCounts", function() {
+    it("Returns something reasonable for 'ate'", function() {
+      expect(getLetterCounts('ate')).to.eql({ a: 1, t: 1, e: 1 });
+    });
+
+    it("Returns something reasonable for 'purple'", function() {
+      expect(getLetterCounts('purple')).to.eql({ e: 1, l: 1, p: 2, u: 1, r: 1 });
+    });
+  });
+
+  describe("countsEqual", function() {
+    it("Returns empty objects equal", function() {
+      expect(countsEqual({}, {})).to.be.true;
+    });
+
+    it("Return true if counts are equal", function() {
+      expect(countsEqual({ a: 1 }, { a: 1 })).to.be.true;
+    });
+
+    it("Return true if more complex counts are equal", function() {
+      expect(countsEqual({ a: 1, b: 2, c: 5 }, { a: 1, b: 2, c: 5 })).to.be.true;
+    });
+
+    it("Returns false if counts aren't equal", function() {
+      expect(countsEqual({ a: 1 }, { a: 2 }), 'something here').to.be.false;
+      expect(countsEqual({ a: 2 }, { a: 1 })).to.be.false;
+    });
+
+    it("Returns false if keys aren't the same", function() {
+      expect(countsEqual({ a: 1, b: 1 }, { a: 1 }), 'ab on lhs, a on rhs').to.be.false;
+      expect(countsEqual({ a: 1 }, { a: 1, b: 1 }), 'a on lhs, ab on rhs').to.be.false;
+    });
+  });
+
   describe("grouped_anagrams", function() {
     it("will return [] for an empty array", function() {
       // Arrange
