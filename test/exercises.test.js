@@ -53,7 +53,7 @@ describe("exercises", function() {
       // Assert
       expect(answer.length).to.be.greaterThan(0);
       answer.forEach((array) => {
-        expect(expected_answer).to.include(array.sort());
+        expect(array.sort()).to.include(expected_answer);
       });
     });
 
@@ -70,7 +70,7 @@ describe("exercises", function() {
       // Assert
       expect(answer.length).to.be.greaterThan(0);
       answer.forEach((array) => {
-        expect(expected_answer).to.include(array.sort());
+        expect(array.sort()).to.include(expected_answer);
       });
     });
   });
@@ -85,7 +85,7 @@ describe("exercises", function() {
       const answer = top_k_frequent_elements(list, k);
 
       // Assert
-      expect(answer.sort).to.eql([1,2]);
+      expect(answer.sort()).to.eql([1,2]);
     });
 
     it("works with example 2", function() {
@@ -97,7 +97,7 @@ describe("exercises", function() {
       const answer = top_k_frequent_elements(list, k);
 
       // Assert
-      expect(answer.sort).to.eql([1]);
+      expect(answer.sort()).to.eql([1]);
     });
 
     it("will return [] for an empty array", function() {
@@ -109,7 +109,7 @@ describe("exercises", function() {
       const answer = top_k_frequent_elements(list, k);
 
       // Assert
-      expect(answer.sort).to.eql([]);
+      expect(answer.sort()).to.eql([]);
     });
 
     it("will work for an array with k elements all unique", function() {
@@ -121,7 +121,7 @@ describe("exercises", function() {
       const answer = top_k_frequent_elements(list, k);
 
       // Assert
-      expect(answer.sort).to.eql([1, 2, 3]);
+      expect(answer.sort()).to.eql([1, 2, 3]);
     });
 
     it("will work for an array when k is 1 and several elements appear 1 time (HINT Pick the 1st one)", function() {
@@ -133,7 +133,7 @@ describe("exercises", function() {
       const answer = top_k_frequent_elements(list, k);
 
       // Assert
-      expect(answer.sort).to.eql([1]);
+      expect(answer.sort()).to.eql([1]);
     });
   });
 
