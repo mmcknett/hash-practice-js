@@ -1,4 +1,9 @@
 const expect = require('chai').expect;
+const {
+  grouped_anagrams,
+  top_k_frequent_elements,
+  valid_sudoku
+} = require('../lib/exercises');
 
 describe("exercises", function() {
  describe("grouped_anagrams", function() {
