@@ -53,7 +53,7 @@ describe("exercises", function() {
       // Assert
       expect(answer.length).to.be.greaterThan(0);
       answer.forEach((array) => {
-        expect(expected_answer).to.include(array.sort());
+        expect(expected_answer).to.deep.include(array.sort());
       });
     });
 
@@ -70,7 +70,7 @@ describe("exercises", function() {
       // Assert
       expect(answer.length).to.be.greaterThan(0);
       answer.forEach((array) => {
-        expect(expected_answer).to.include(array.sort());
+        expect(expected_answer).to.deep.include(array.sort());
       });
     });
   });
