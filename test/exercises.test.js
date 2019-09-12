@@ -29,8 +29,8 @@ describe("exercises", function() {
 
       // Assert
       expect(answer.length).to.be.greaterThan(0);
-      answer.forEach((array) => {
-        expect(array.sort()).to.eql(expected_answer);
+      answer.forEach((array, index) => {
+        expect(array.sort()).to.eql(expected_answer[index]);
       });
     });
 
