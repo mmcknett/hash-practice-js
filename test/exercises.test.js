@@ -138,6 +138,48 @@ describe("exercises", function() {
   });
 
   describe.skip("valid sudoku", function() {
+    it("is not valid if a row has duplicate values", function() {
+      // Arrange
+      const table = [
+        ["5","3",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".","5","5",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."]
+      ];
+
+      // Act
+      const valid = valid_sudoku(table);
+
+      // Assert
+      expect(valid).to.be.false;
+    });
+
+    it("is not valid if a column has duplicate values", function() {
+      // Arrange
+      const table = [
+        ["5",".",".",".",".",".",".",".","."],
+        ["2",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".","4",".",".",".","."],
+        [".",".",".",".","4",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."]
+      ];
+
+      // Act
+      const valid = valid_sudoku(table);
+
+      // Assert
+      expect(valid).to.be.false;
+    });
+
     it("works for the table given in the README", function() {
       // Arrange
       const table = [
@@ -156,7 +198,7 @@ describe("exercises", function() {
       const valid = valid_sudoku(table);
 
       // Assert
-      expect(valid).toEqual(true);
+      expect(valid).to.be.true;
     });
 
     it("fails for the table given in the README", function() {
@@ -177,7 +219,7 @@ describe("exercises", function() {
       const valid = valid_sudoku(table);
 
       // Assert
-      expect(valid).toEqual(false);
+      expect(valid).to.be.false;
     });
 
     it("fails for a duplicate number in a sub-box", function() {
@@ -198,7 +240,7 @@ describe("exercises", function() {
       const valid = valid_sudoku(table);
 
       // Assert
-      expect(valid).toEqual(false);
+      expect(valid).to.be.false;
     });
 
     it("fails for a duplicate number in a bottom right sub-box", function() {
@@ -219,7 +261,7 @@ describe("exercises", function() {
       const valid = valid_sudoku(table);
 
       // Assert
-      expect(valid).toEqual(false);
+      expect(valid).to.be.false;
     });
   });
 });
