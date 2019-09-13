@@ -152,7 +152,7 @@ describe("exercises", function() {
     });
   });
 
-  describe.skip("valid sudoku", function() {
+  describe("valid sudoku", function() {
     it("is not valid if a row has duplicate values", function() {
       // Arrange
       const table = [
