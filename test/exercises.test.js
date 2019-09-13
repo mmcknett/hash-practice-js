@@ -90,7 +90,7 @@ describe("exercises", function() {
     });
   });
 
-  describe.skip("top_k_frequent_elements", function() {
+  describe("top_k_frequent_elements", function() {
     it("works with example 1", function() {
       // Arrange
       const list = [1,1,1,2,2,3];
